@@ -3,11 +3,9 @@ public:
 
     void solve(vector<int>& nums,vector<vector<int>> &ans,vector<int> &output,int index,map<vector<int>,int> &count){
         if(index>=nums.size()){
-            vector<int> temp=output;
-            sort(temp.begin(),temp.end());
-            if(!count[temp]){
-                count[temp]++;
-                ans.push_back(temp);
+            if(!count[output]){
+                count[output]++;
+                ans.push_back(output);
             }
             return;
         }
@@ -23,6 +21,7 @@ public:
     }
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
         map<vector<int>,int> count;
         vector<vector<int>> ans;
         vector<int> output;
